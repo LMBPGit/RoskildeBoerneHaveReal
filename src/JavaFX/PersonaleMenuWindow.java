@@ -19,6 +19,8 @@ public class PersonaleMenuWindow extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        Stage window = primaryStage;
+
         BorderPane outerMenu = new BorderPane();
 
     //VagtPlan Tab
@@ -90,7 +92,8 @@ public class PersonaleMenuWindow extends Application{
         VBox sygeMeldinger = new VBox(addsygedagbtn);
 
         addsygedagbtn.setOnAction(e -> {
-            sygeMeldinger.getChildren().add(PersonaleUtil.addSygeDag());
+            //Scene newScene = BoerneMenuWindow.BoerneScene();
+            //primaryStage.setScene(newScene);
         });
 
         overvindue.setContent(sygeMeldinger);
@@ -132,8 +135,8 @@ public class PersonaleMenuWindow extends Application{
         TabPane personaleTabs = new TabPane(vagtPlanTab, sygTab, personaleListeTab);
         personaleTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-        Button logudbtn = new Button("Log ud");
-        logudbtn.setOnAction(event -> primaryStage.close());
+        Button tilbageBtn = new Button("Log ud");
+        tilbageBtn.setOnAction(event -> primaryStage.close());
 
         outerMenu.setCenter(personaleTabs);
 
@@ -143,8 +146,8 @@ public class PersonaleMenuWindow extends Application{
         Scene scene = new Scene(outerMenu);
         personaleTabs.setPrefSize(600, 600);
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        window.setScene(scene);
+        window.show();
 
     }
 
