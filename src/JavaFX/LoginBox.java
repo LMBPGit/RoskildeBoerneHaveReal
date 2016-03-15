@@ -61,7 +61,11 @@ public class LoginBox extends Application {
         cancelButton = new Button();
         cancelButton.setText("Cancel");
         cancelButton.setMinSize(60,20);
-        cancelButton.setOnAction(e -> window.close());
+        cancelButton.setOnAction(e -> {
+            System.out.println("System Closed");
+            window.close();
+        });
+
 
         passText = new TextField();
         passText.setPromptText("Password");
