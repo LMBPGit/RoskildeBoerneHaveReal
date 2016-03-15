@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="a2c012dd-069b-4be5-b121-6a4986e3db5f" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/JavaFX/BoerneMenuWindow.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/JavaFX/MenuWindow.java" afterPath="$PROJECT_DIR$/src/JavaFX/PersonaleMenuWindow.java" />
@@ -9,6 +10,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/Boern.java" afterPath="$PROJECT_DIR$/src/Models/Boern.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/BoernUtil.java" afterPath="$PROJECT_DIR$/src/Util/BoernUtil.java" />
     </list>
+=======
+    <list default="true" id="a2c012dd-069b-4be5-b121-6a4986e3db5f" name="Default" comment="" />
+>>>>>>> Stashed changes
     <ignored path="RoskildeB-rnehave.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,8 +37,13 @@
       <file leaf-file-name="PersonaleMenuWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JavaFX/PersonaleMenuWindow.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.44353184">
               <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+=======
+            <state vertical-scroll-proportion="0.8153846">
+              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1296,8 +1305,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JavaFX/PersonaleMenuWindow.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.44353184">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+=======
+        <state vertical-scroll-proportion="0.8153846">
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
