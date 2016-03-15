@@ -13,11 +13,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class MenuWindow extends Application{
+public class PersonaleMenuWindow extends Application{
 
-
-
-
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -130,8 +128,6 @@ public class MenuWindow extends Application{
         nameInput.setPromptText("Navn");
 
         Button addButton = new Button("Tilføj");
-        //addButton.setOnAction(e -> personaleTable.getItems().add(PersonaleUtil.addPersonale(nameInput));
-
 
         TabPane personaleTabs = new TabPane(vagtPlanTab, sygTab, personaleListeTab);
         personaleTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);

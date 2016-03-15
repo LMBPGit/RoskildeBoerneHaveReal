@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class BoernUtil {
 
-    private static File boerneFil;
+    private static File boerneFil = new File("boernefil");
 
     public static ArrayList<Boern> loadBoern(){
         ObjectInputStream objin = null;
@@ -38,11 +38,12 @@ public class BoernUtil {
     public static void saveBoern(ArrayList<Boern> boerneliste){
         ObjectOutputStream objout = null;
         try{
-            objout = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(boerneFil)));
-
+            objout = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("boernefil"))));
+            objout.writeObject(boerneliste);
 
         }catch (IOException e){
             e.printStackTrace();
+
         }finally {
             try {
                 if (objout != null){
@@ -50,6 +51,7 @@ public class BoernUtil {
                 }
             }catch (IOException e){
                 e.printStackTrace();
+
             }
         }
     }

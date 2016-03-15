@@ -1,6 +1,8 @@
 package Models;
 
-public class Boern {
+import java.io.Serializable;
+
+public class Boern implements Serializable{
 
     private String name;
     private int alder;
