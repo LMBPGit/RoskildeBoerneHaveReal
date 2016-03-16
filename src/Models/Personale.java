@@ -1,5 +1,6 @@
 package Models;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -8,31 +9,36 @@ import java.util.ArrayList;
 public class Personale {
 
     private SimpleStringProperty name;
-    private SimpleStringProperty mobilnr;
+    private SimpleIntegerProperty mobilnr;
     private SimpleStringProperty address;
-    private SimpleStringProperty cprnr;
-    private SimpleStringProperty mandagtid, tirsdagtid, onsdagtid, torsdagtid, fredagtid;
+    private SimpleIntegerProperty cprnr;
+    private SimpleDoubleProperty mandagtid, tirsdagtid, onsdagtid, torsdagtid, fredagtid;
     private ArrayList<String> vagttider;
 
 
 
-    public Personale(String name, String mobilnr, String address, String cprnr) {
+    public Personale(String name, int mobilnr, String address, int cprnr, double mantid,double tirstid,double onstid,double torstid,double fretid) {
         this.name = new SimpleStringProperty (name);
-        this.mobilnr = new SimpleStringProperty(mobilnr);
+        this.mobilnr = new SimpleIntegerProperty(mobilnr);
         this.address = new SimpleStringProperty(address);
-        this.cprnr = new SimpleStringProperty(cprnr);
-        this.mandagtid = new SimpleStringProperty("");
-        this.tirsdagtid = new SimpleStringProperty("");
-        this.onsdagtid = new SimpleStringProperty("");
-        this.torsdagtid = new SimpleStringProperty("");
-        this.fredagtid = new SimpleStringProperty("");
+        this.cprnr = new SimpleIntegerProperty(cprnr);
+        this.mandagtid = new SimpleDoubleProperty(mantid);
+        this.tirsdagtid = new SimpleDoubleProperty(tirstid);
+        this.onsdagtid = new SimpleDoubleProperty(onstid);
+        this.torsdagtid = new SimpleDoubleProperty(torstid);
+        this.fredagtid = new SimpleDoubleProperty(fretid);
     }
 
     public Personale() {
         this.name = new SimpleStringProperty("");
-        this.mobilnr = new SimpleStringProperty("");
+        this.mobilnr = new SimpleIntegerProperty(0);
         this.address = new SimpleStringProperty("");
-        this.cprnr = new SimpleStringProperty("");
+        this.cprnr = new SimpleIntegerProperty(0);
+        this.mandagtid = new SimpleDoubleProperty(0);
+        this.tirsdagtid = new SimpleDoubleProperty(0);
+        this.onsdagtid = new SimpleDoubleProperty(0);
+        this.torsdagtid = new SimpleDoubleProperty(0);
+        this.fredagtid = new SimpleDoubleProperty(0);
     }
 
     public String getName() {
@@ -47,15 +53,15 @@ public class Personale {
         this.name.set(name);
     }
 
-    public String getMobilnr() {
+    public int getMobilnr() {
         return mobilnr.get();
     }
 
-    public SimpleStringProperty mobilnrProperty() {
+    public SimpleIntegerProperty mobilnrProperty() {
         return mobilnr;
     }
 
-    public void setMobilnr(String mobilnr) {
+    public void setMobilnr(int mobilnr) {
         this.mobilnr.set(mobilnr);
     }
 
@@ -71,92 +77,75 @@ public class Personale {
         this.address.set(address);
     }
 
-    public String getCprnr() {
+    public int getCprnr() {
         return cprnr.get();
     }
 
-    public SimpleStringProperty cprnrProperty() {
+    public SimpleIntegerProperty cprnrProperty() {
         return cprnr;
     }
 
+    public void setCprnr(int cprnr) {
+        this.cprnr.set(cprnr);
+    }
 
-    public String getMandagtid() {
+    public double getMandagtid() {
         return mandagtid.get();
     }
 
-    public SimpleStringProperty mandagtidProperty() {
+    public SimpleDoubleProperty mandagtidProperty() {
         return mandagtid;
     }
 
-    public void setMandagtid(String mandagtid) {
+    public void setMandagtid(double mandagtid) {
         this.mandagtid.set(mandagtid);
     }
 
-    public String getTirsdagtid() {
+    public double getTirsdagtid() {
         return tirsdagtid.get();
     }
 
-    public SimpleStringProperty tirsdagtidProperty() {
+    public SimpleDoubleProperty tirsdagtidProperty() {
         return tirsdagtid;
     }
 
-    public void setTirsdagtid(String tirsdagtid) {
+    public void setTirsdagtid(double tirsdagtid) {
         this.tirsdagtid.set(tirsdagtid);
     }
 
-    public String getOnsdagtid() {
+    public double getOnsdagtid() {
         return onsdagtid.get();
     }
 
-    public SimpleStringProperty onsdagtidProperty() {
+    public SimpleDoubleProperty onsdagtidProperty() {
         return onsdagtid;
     }
 
-    public void setOnsdagtid(String onsdagtid) {
+    public void setOnsdagtid(double onsdagtid) {
         this.onsdagtid.set(onsdagtid);
     }
 
-    public String getTorsdagtid() {
+    public double getTorsdagtid() {
         return torsdagtid.get();
     }
 
-    public SimpleStringProperty torsdagtidProperty() {
+    public SimpleDoubleProperty torsdagtidProperty() {
         return torsdagtid;
     }
 
-    public void setTorsdagtid(String torsdagtid) {
+    public void setTorsdagtid(double torsdagtid) {
         this.torsdagtid.set(torsdagtid);
     }
 
-    public String getFredagtid() {
+    public double getFredagtid() {
         return fredagtid.get();
     }
 
-    public SimpleStringProperty fredagtidProperty() {
+    public SimpleDoubleProperty fredagtidProperty() {
         return fredagtid;
     }
 
-    public void setFredagtid(String fredagtid) {
+    public void setFredagtid(double fredagtid) {
         this.fredagtid.set(fredagtid);
-    }
-
-
-    public ArrayList<String> getVagttider() {
-        return vagttider;
-    }
-
-    public void setVagttider(ArrayList<String> vagttider) {
-        this.vagttider = vagttider;
-    }
-
-    public String enkelteVagttid(int dag){
-        ArrayList<String> liste = getVagttider();
-        return liste.get(dag);
-    }
-
-
-    @Override
-    public String toString() {
-        return name.get();
     }
 }
