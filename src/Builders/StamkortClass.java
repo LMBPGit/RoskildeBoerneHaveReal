@@ -27,9 +27,17 @@ import java.util.ArrayList;
  */
 public class StamkortClass {
 
-    public static void stamkort(String currentName) {
+    private static boolean nytBarn;
 
-        Boern currentBarn = BoernUtil.getBarn(currentName);
+    public static void stamkort(String currentName) {
+        nytBarn = true;
+        Boern currentBarn = new Boern("Indsæt navn", 0);
+
+        if(!currentName.equals("Intet navn")){
+            nytBarn = false;
+            currentBarn = BoernUtil.getBarn(currentName);
+        }
+
 
         Stage stamkortstage = new Stage();
         stamkortstage.initModality(Modality.APPLICATION_MODAL);
@@ -50,8 +58,10 @@ public class StamkortClass {
 
         VBox barn2 = new VBox();
         TextField navn = new TextField(currentBarn.getName());
-        Label label1 = new Label("NAVN:");
-        barn2.getChildren().addAll(label1,navn);
+        Label navneLabel = new Label("NAVN:");
+        TextField alder = new TextField(Integer.toString(currentBarn.getAlder()));
+        Label alderLabel = new Label("ALDER:");
+        barn2.getChildren().addAll(navneLabel,navn,alderLabel,alder);
         barn2.setPadding(new Insets(0, 12, 15, 0));
         barn2.setSpacing(10);
 
@@ -85,7 +95,6 @@ public class StamkortClass {
 
         //laver Hbox kontakt/komentar:
 
-        HBox diverse = new HBox();
 
         Rectangle kontakt = new Rectangle(412, 100);
         TextArea komentar = new TextArea();
@@ -93,22 +102,36 @@ public class StamkortClass {
         Label label4 = new Label("KONTAKT:");
         Label label5 = new Label("KOMENTAR:");
 
-        Button tilbage = new Button("TILBAGE");
+        Button tilbage = new Button("Tilbage");
         tilbage.setOnAction(event -> stamkortstage.close());
 
         Button saveBtn = new Button("Gem");
         saveBtn.setOnAction(e -> {
+            if(nytBarn){
+                BoernUtil.nytBarnTilListen(new Boern(navn.getText(), Integer.parseInt(alder.getText())));
+            }else{
+                BoernUtil.changeBarnInfo(new Boern(navn.getText(), Integer.parseInt(alder.getText())));
+            }
             stamkortstage.close();
-            BoernUtil.changeBarnInfo(new Boern(navn.getText(), 4));
         });
 
-        HBox buttonsBox = new HBox(tilbage, saveBtn);
+        Button sletBarn = new Button("Slet Barn");
+        sletBarn.setOnAction(e -> {
+            BoernUtil.removeBarnFraListen(currentName);
+            stamkortstage.close();
+        });
 
-        stamkortVbox.getChildren().addAll(barn, forældre, label4, kontakt, label5, komentar, buttonsBox);
+
+        HBox buttonsBox = new HBox(tilbage, saveBtn);
+        buttonsBox.setSpacing(20);
+
+        HBox diverseBtns = new HBox(sletBarn, buttonsBox);
+        diverseBtns.setSpacing(100);
+
+        stamkortVbox.getChildren().addAll(barn, forældre, label4, kontakt, label5, komentar, diverseBtns);
 
         stamkortVbox.setPadding(new Insets(15, 12, 15, 12));
         stamkortVbox.setSpacing(10);
-
 
         Scene scene = new Scene(stamkortVbox);
         stamkortstage.setScene(scene);

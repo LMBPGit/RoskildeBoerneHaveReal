@@ -1,8 +1,10 @@
 package Builders;
 
+import JavaFX.LoginBox;
 import Util.BoernUtil;
 import Util.PersonaleUtil;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -16,6 +18,7 @@ public class BoerneMenuWindow {
         BorderPane outerWindow = new BorderPane();
         outerWindow.setPrefSize(400, 400);
 
+        Tab boerneListeTab = new Tab();
         BorderPane listvindue = new BorderPane();
         ScrollPane listeScroler = new ScrollPane();
         VBox boerneVbox = new VBox();
@@ -23,33 +26,78 @@ public class BoerneMenuWindow {
         boerneVbox.getChildren().add(tidligereBoernVbox);
 
         Button addBarnBtn = new Button("Tilføj Barn");
+        addBarnBtn.setOnAction(e -> boerneVbox.getChildren().add(BoernUtil.addBarn()));
 
-        addBarnBtn.setOnAction(e -> {
-            boerneVbox.getChildren().add(BoernUtil.addBarn());
+        Button reloadBtn = new Button("genindlæs listen");
+        reloadBtn.setOnAction(e -> {
+            tidligereBoernVbox.getChildren().clear();
+            tidligereBoernVbox.getChildren().add(reloadBoerneListe());
         });
+
+        VBox btnVbox = new VBox(addBarnBtn, reloadBtn);
+        btnVbox.setSpacing(10);
+        btnVbox.setPadding(new Insets(10, 10, 10, 10));
 
         listvindue.setPadding(new Insets(20,20,20,20));
         listvindue.setPrefSize(200, 200);
         listvindue.setLeft(listeScroler);
-        listvindue.setRight(addBarnBtn);
+        listvindue.setRight(btnVbox);
         listeScroler.setContent(boerneVbox);
         listeScroler.setPadding(new Insets(20,20,20,20));
         listeScroler.setPrefSize(260, 260);
 
-        TextField nameInput = new TextField();
-        nameInput.setPromptText("Navn");
+        boerneListeTab.setContent(listvindue);
+        boerneListeTab.setText("BørneListe");
+//__________________________________________________________________________________________//
+        //Tab venteliste
 
-        Button addButton = new Button("Tilføj");
+        BorderPane venteListVindue = new BorderPane();
+        ScrollPane ventelisteScroler = new ScrollPane();
+        VBox venteListeVbox = new VBox();
 
-        Tab boerneListeTab = new Tab("BørneListe", listvindue);
-        Tab venteListeTab = new Tab("");
+        venteListVindue.setPadding(new Insets(20,20,20,20));
+        venteListVindue.setPrefSize(200, 200);
+        venteListVindue.setLeft(ventelisteScroler);
+        ventelisteScroler.setContent(venteListeVbox);
+        ventelisteScroler.setPadding(new Insets(20,20,20,20));
+        ventelisteScroler.setPrefSize(260, 260);
+
+
+        Tab venteListeTab = new Tab("VenteListe");
 
         TabPane boerneTabs = new TabPane(boerneListeTab, venteListeTab);
         boerneTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
+        Button tilbageBtn = new Button("Tilbage");
+        tilbageBtn.setOnAction(e ->{
+            LoginBox loginBox = new LoginBox();
+            primaryStage.setScene(loginBox.start(primaryStage));
+        });
+
         outerWindow.setCenter(boerneTabs);
+        outerWindow.setBottom(tilbageBtn);
+        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_LEFT);
 
         Scene Scene = new Scene(outerWindow);
         return Scene;
     }
+
+    private VBox reloadBoerneListe(){
+
+        VBox boerneVbox = new VBox();
+        VBox tidligereBoernVbox = BoernUtil.tidligereBoern();
+        boerneVbox.getChildren().add(tidligereBoernVbox);
+
+        Button addBarnBtn = new Button("Tilføj Barn");
+        addBarnBtn.setOnAction(e -> boerneVbox.getChildren().add(BoernUtil.addBarn()));
+
+        Button reloadBtn = new Button("genindlæs listen");
+        reloadBtn.setOnAction(e -> reloadBoerneListe());
+
+        VBox btnVbox = new VBox(addBarnBtn, reloadBtn);
+
+        return boerneVbox;
+    }
+
+
 }

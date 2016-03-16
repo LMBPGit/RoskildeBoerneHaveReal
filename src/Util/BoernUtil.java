@@ -4,6 +4,7 @@ import Builders.StamkortClass;
 import Models.Boern;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -20,6 +21,26 @@ public class BoernUtil {
     private static int currentIndex;
 
     private static File boerneFil = new File("boernefil.txt");
+
+    public static void nytBarnTilListen(Boern nytBarn){
+        ArrayList<Boern> boerneListe = loadBoern();
+        boerneListe.add(nytBarn);
+        saveBoern(boerneListe);
+    }
+
+    public static void removeBarnFraListen(String name){
+        ArrayList<Boern> boerneListe = loadBoern();
+        int index = 0;
+        for(Boern b: boerneListe){
+            if(b.getName().equals(name)){
+                index = boerneListe.indexOf(b);
+            }
+        }
+        boerneListe.remove(index);
+        saveBoern(boerneListe);
+
+
+    }
 
     public static ArrayList<Boern> loadBoern(){
         ObjectInputStream objin = null;
@@ -67,27 +88,26 @@ public class BoernUtil {
         }
     }
 
-    public static HBox addBarn(){
-        HBox barnSkabelon = new HBox();
-        TextField nameInput = new TextField();
-        Rectangle profilBillede = new Rectangle(70, 100);
-        profilBillede.setFill(Color.LIGHTBLUE);
-        nameInput.setPromptText("Navn");
-        Button infoBtn = new Button("Info");
-        infoBtn.setOnAction(e -> {
-
-            StamkortClass.stamkort(nameInput.getText());
-        });
-        barnSkabelon.getChildren().addAll(profilBillede, nameInput, infoBtn);
-        barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
-        barnSkabelon.setSpacing(10);
-        return barnSkabelon;
-    }
-
     public static void changeBarnInfo(Boern barn){
         ArrayList<Boern> boerneListe = BoernUtil.loadBoern();
         boerneListe.set(currentIndex, barn);
         saveBoern(boerneListe);
+    }
+//javafx utils
+    public static HBox addBarn(){
+        HBox barnSkabelon = new HBox();
+        Label nameLabel = new Label("Intet navn"); //hvis String ("Intet navn") bliver skiftet skal if statement i stamkortClass laves om!!!
+        Rectangle profilBillede = new Rectangle(70, 100);
+        profilBillede.setFill(Color.LIGHTBLUE);
+        Button infoBtn = new Button("Info");
+        infoBtn.setOnAction(e -> {
+
+            StamkortClass.stamkort(nameLabel.getText());
+        });
+        barnSkabelon.getChildren().addAll(profilBillede, nameLabel, infoBtn);
+        barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
+        barnSkabelon.setSpacing(10);
+        return barnSkabelon;
     }
 
     public static Boern getBarn(String name){
@@ -109,18 +129,19 @@ public class BoernUtil {
         ArrayList<Boern> boerneListe = loadBoern();
 
         for(Boern b: boerneListe){
-            HBox barnSkabelon = new HBox();
-            TextField nameInput = new TextField(b.getName());
+            BorderPane barnSkabelon = new BorderPane();
+            Label nameLabel = new Label(b.getName());
             Rectangle profilBillede = new Rectangle(70, 100);
             profilBillede.setFill(Color.LIGHTBLUE);
             Button infoBtn = new Button("Info");
             infoBtn.setOnAction(e -> {
 
-                StamkortClass.stamkort(nameInput.getText());
+                StamkortClass.stamkort(nameLabel.getText());
             });
-            barnSkabelon.getChildren().addAll(profilBillede, nameInput, infoBtn);
             barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
-            barnSkabelon.setSpacing(10);
+            barnSkabelon.setLeft(profilBillede);
+            barnSkabelon.setTop(nameLabel);
+            barnSkabelon.setCenter(infoBtn);
             tidligereBoernVBox.getChildren().add(barnSkabelon);
         }
 

@@ -121,7 +121,6 @@ public class PersonaleMenuWindow{
         listeScroler.setPadding(new Insets(20,20,20,20));
         listeScroler.setPrefSize(260, 260);
 
-
         Tab personaleListeTab = new Tab("PersonaleListe", listvindue);
 
         TextField nameInput = new TextField();
