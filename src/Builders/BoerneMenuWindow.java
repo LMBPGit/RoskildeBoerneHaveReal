@@ -85,7 +85,8 @@ public class BoerneMenuWindow {
         HBox buttonHbox = new HBox(sletBarnBtn, nytBarnBtn);
         buttonHbox.setSpacing(20);
 
-        VBox optionVbox = new 
+        VBox optionVbox = new VBox(nytBarnVenteListe, buttonHbox);
+        optionVbox.setSpacing(20);
 
         Tab venteListeTab = new Tab("VenteListe", venteListVindue);
 
@@ -101,6 +102,7 @@ public class BoerneMenuWindow {
         outerWindow.setCenter(boerneTabs);
         outerWindow.setBottom(tilbageBtn);
         outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
+        outerWindow.setAlignment();
         outerWindow.setPadding(new Insets(10,10,10,10));
 
         Scene Scene = new Scene(outerWindow);

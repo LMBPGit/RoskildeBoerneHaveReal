@@ -16,10 +16,10 @@ public class VenteListeUtil {
     }
 
     public static void fjernBarnFraVenteListen(String name){
-        ArrayList<Boern> boerneListe = loadVenteListen();
+        ArrayList<String> boerneListe = loadVenteListen();
         int index = 0;
-        for(Boern b: boerneListe){
-            if(b.getName().equals(name)){
+        for(String b: boerneListe){
+            if(b.equals(name)){
                 index = boerneListe.indexOf(b);
             }
         }
