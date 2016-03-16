@@ -1,5 +1,7 @@
 package JavaFX;
 
+import Builders.BoerneMenuWindow;
+import Builders.PersonaleMenuWindow;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +15,7 @@ import javafx.stage.Stage;
 /**
  * Created by FrederikPetersen on 15/03/2016.
  */
-public class LoginBox extends Application {
+public class LoginBox{
 
     Stage window;
     Button enterButton;
@@ -30,16 +32,12 @@ public class LoginBox extends Application {
     VBox loginWhole;
     VBox kategoriWhole;
     Scene kategoriScene;
+    BoerneMenuWindow boerneMenuWindow;
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public Scene start(Stage primaryStage){
         window = primaryStage;
-        window.setTitle("Roskilde Børnehave");
 
         loginBoxBottom = new HBox();
         loginBoxBottom.setPadding(new Insets(20,20,20,20));
@@ -102,6 +100,17 @@ public class LoginBox extends Application {
         kategoriPersonale.setText("Personale");
         kategoriPersonale.setMinSize(60,20);
 
+        BoerneMenuWindow boerneMenuWindow = new BoerneMenuWindow();
+        kategoriBørn.setOnAction(e -> {
+            window.setScene(boerneMenuWindow.start(window));
+        });
+
+        PersonaleMenuWindow personaleMenuWindow = new PersonaleMenuWindow();
+        kategoriPersonale.setOnAction(e -> {
+            window.setScene(personaleMenuWindow.start(window));
+
+        });
+
         kategoriLogUd = new Button();
         kategoriLogUd.setText("Log ud");
         kategoriLogUd.setMinSize(60,20);
@@ -114,7 +123,6 @@ public class LoginBox extends Application {
 
         kategoriScene = new Scene(kategoriWhole,400,150);
 
-        window.setScene(scene1);
-        window.show();
+        return scene1;
     }
 }

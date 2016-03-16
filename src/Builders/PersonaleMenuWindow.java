@@ -1,9 +1,11 @@
-package JavaFX;
+package Builders;
 
+import JavaFX.LoginBox;
 import Models.Personale;
 import Util.PersonaleUtil;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -13,20 +15,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class PersonaleMenuWindow extends Application{
+public class PersonaleMenuWindow{
 
     
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public Scene start(Stage primaryStage) {
 
-        Stage window = primaryStage;
-
-        BorderPane outerMenu = new BorderPane();
+        BorderPane outerWindow = new BorderPane();
 
     //VagtPlan Tab
         // Table
         TableView<Personale> personaleTable = new TableView<>();
-        personaleTable.setPrefSize(10, 10);
+        personaleTable.setPrefSize(200, 200);
         personaleTable.setItems(PersonaleUtil.getPersonale());
         personaleTable.setEditable(true);
 
@@ -92,8 +91,7 @@ public class PersonaleMenuWindow extends Application{
         VBox sygeMeldinger = new VBox(addsygedagbtn);
 
         addsygedagbtn.setOnAction(e -> {
-            //Scene newScene = BoerneMenuWindow.BoerneScene();
-            //primaryStage.setScene(newScene);
+            PersonaleUtil.addSygeDag();
         });
 
         overvindue.setContent(sygeMeldinger);
@@ -126,33 +124,28 @@ public class PersonaleMenuWindow extends Application{
 
         Tab personaleListeTab = new Tab("PersonaleListe", listvindue);
 
-//inputs
         TextField nameInput = new TextField();
         nameInput.setPromptText("Navn");
 
         Button addButton = new Button("Tilføj");
 
+// Overvindue
         TabPane personaleTabs = new TabPane(vagtPlanTab, sygTab, personaleListeTab);
         personaleTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-        Button tilbageBtn = new Button("Log ud");
-        tilbageBtn.setOnAction(event -> primaryStage.close());
+        Button tilbageBtn = new Button("Tilbage");
+        tilbageBtn.setOnAction(e ->{
+            LoginBox loginBox = new LoginBox();
+            primaryStage.setScene(loginBox.start(primaryStage));
+        });
 
-        outerMenu.setCenter(personaleTabs);
+        outerWindow.setCenter(personaleTabs);
+        outerWindow.setBottom(tilbageBtn);
+        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_LEFT);
 
-        personaleTable.setPrefSize(200, 200);
+        Scene scene = new Scene(outerWindow);
 
-
-        Scene scene = new Scene(outerMenu);
-        personaleTabs.setPrefSize(600, 600);
-
-        window.setScene(scene);
-        window.show();
-
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        return scene;
     }
 
 }

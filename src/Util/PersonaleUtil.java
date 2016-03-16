@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -25,8 +26,27 @@ public class PersonaleUtil {
         return personaleListe;
     }
 
-    public static BorderPane addSygeDag(){
-        BorderPane sygeSkabelon = new BorderPane();
+    public static VBox addSygeDag(){
+
+        TextField nameSyg = new TextField();
+        nameSyg.setPromptText("Navn paa den syge");
+        TextField tidsyg = new TextField();
+        tidsyg.setPromptText("SygeTid");
+        TextField sygeDag = new TextField();
+        sygeDag.setPromptText("SygeDag");
+        TextField nameErstat = new TextField();
+        nameErstat.setPromptText("Navn på erstatning");
+        TextField tidErstat = new TextField();
+        tidErstat.setPromptText("Erstatningstid");
+
+        Rectangle bottomLine = new Rectangle(200, 10);
+        Rectangle profilBillede = new Rectangle(70, 100);
+        profilBillede.setFill(Color.LIGHTBLUE);
+
+        HBox sygPerson = new HBox(nameSyg, tidsyg, sygeDag);
+        HBox erstatPerson = new HBox(nameErstat, tidErstat);
+        VBox sygeSkabelon = new VBox(sygPerson, erstatPerson);
+
 
         return sygeSkabelon;
     }
