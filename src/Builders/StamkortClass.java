@@ -19,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import java.util.ArrayList;
 
 /**
@@ -101,8 +102,9 @@ public class StamkortClass {
             BoernUtil.changeBarnInfo(new Boern(navn.getText(), 4));
         });
 
+        HBox buttonsBox = new HBox(tilbage, saveBtn);
 
-        stamkortVbox.getChildren().addAll(barn, forældre, label4, kontakt, label5, komentar, tilbage);
+        stamkortVbox.getChildren().addAll(barn, forældre, label4, kontakt, label5, komentar, buttonsBox);
 
         stamkortVbox.setPadding(new Insets(15, 12, 15, 12));
         stamkortVbox.setSpacing(10);

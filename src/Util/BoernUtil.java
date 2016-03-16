@@ -77,7 +77,6 @@ public class BoernUtil {
         infoBtn.setOnAction(e -> {
 
             StamkortClass.stamkort(nameInput.getText());
-
         });
         barnSkabelon.getChildren().addAll(profilBillede, nameInput, infoBtn);
         barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
@@ -103,5 +102,28 @@ public class BoernUtil {
             }
         }
         return currentBarn;
+    }
+
+    public static VBox tidligereBoern(){
+        VBox tidligereBoernVBox = new VBox();
+        ArrayList<Boern> boerneListe = loadBoern();
+
+        for(Boern b: boerneListe){
+            HBox barnSkabelon = new HBox();
+            TextField nameInput = new TextField(b.getName());
+            Rectangle profilBillede = new Rectangle(70, 100);
+            profilBillede.setFill(Color.LIGHTBLUE);
+            Button infoBtn = new Button("Info");
+            infoBtn.setOnAction(e -> {
+
+                StamkortClass.stamkort(nameInput.getText());
+            });
+            barnSkabelon.getChildren().addAll(profilBillede, nameInput, infoBtn);
+            barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
+            barnSkabelon.setSpacing(10);
+            tidligereBoernVBox.getChildren().add(barnSkabelon);
+        }
+
+        return tidligereBoernVBox;
     }
 }

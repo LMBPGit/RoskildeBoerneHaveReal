@@ -19,6 +19,8 @@ public class BoerneMenuWindow {
         BorderPane listvindue = new BorderPane();
         ScrollPane listeScroler = new ScrollPane();
         VBox boerneVbox = new VBox();
+        VBox tidligereBoernVbox = BoernUtil.tidligereBoern();
+        boerneVbox.getChildren().add(tidligereBoernVbox);
 
         Button addBarnBtn = new Button("Tilføj Barn");
 
@@ -33,7 +35,6 @@ public class BoerneMenuWindow {
         listeScroler.setContent(boerneVbox);
         listeScroler.setPadding(new Insets(20,20,20,20));
         listeScroler.setPrefSize(260, 260);
-
 
         TextField nameInput = new TextField();
         nameInput.setPromptText("Navn");
