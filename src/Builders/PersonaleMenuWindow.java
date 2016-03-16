@@ -140,7 +140,8 @@ public class PersonaleMenuWindow{
 
         outerWindow.setCenter(personaleTabs);
         outerWindow.setBottom(tilbageBtn);
-        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_LEFT);
+        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
+        outerWindow.setPadding(new Insets(10,10,10,10));
 
         Scene scene = new Scene(outerWindow);
 

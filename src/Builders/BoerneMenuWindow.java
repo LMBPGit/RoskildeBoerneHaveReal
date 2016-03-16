@@ -16,7 +16,7 @@ public class BoerneMenuWindow {
     public Scene start(Stage primaryStage){
 
         BorderPane outerWindow = new BorderPane();
-        outerWindow.setPrefSize(400, 400);
+        outerWindow.setPrefSize(450, 400);
 
         Tab boerneListeTab = new Tab();
         BorderPane listvindue = new BorderPane();
@@ -78,6 +78,7 @@ public class BoerneMenuWindow {
         outerWindow.setCenter(boerneTabs);
         outerWindow.setBottom(tilbageBtn);
         outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
+        outerWindow.setPadding(new Insets(10,10,10,10));
 
         Scene Scene = new Scene(outerWindow);
         return Scene;
