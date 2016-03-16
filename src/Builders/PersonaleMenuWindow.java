@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.converter.DoubleStringConverter;
 
 public class PersonaleMenuWindow{
 
@@ -34,43 +35,43 @@ public class PersonaleMenuWindow{
         nameColumn.setCellValueFactory(e -> e.getValue().nameProperty());
         nameColumn.setEditable(false);
 
-        TableColumn<Personale, String> mandagColumn = new TableColumn<>("Mandag");
-        mandagColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        mandagColumn.setCellValueFactory(e -> e.getValue().mandagtidProperty());
+        TableColumn<Personale, Double> mandagColumn = new TableColumn<>("Mandag");
+        mandagColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        mandagColumn.setCellValueFactory(e -> e.getValue().mandagtidProperty().asObject());
 
-        mandagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, String> e) -> {
+        mandagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, Double> e) -> {
             (e.getTableView().getItems().get(e.getTablePosition().getRow())).setMandagtid(e.getNewValue());
         });
 
-        TableColumn<Personale, String> tirsdagColumn = new TableColumn<>("Tirsdag");
-        tirsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        tirsdagColumn.setCellValueFactory(e -> e.getValue().tirsdagtidProperty());
+        TableColumn<Personale, Double> tirsdagColumn = new TableColumn<>("Tirsdag");
+        tirsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        tirsdagColumn.setCellValueFactory(e -> e.getValue().tirsdagtidProperty().asObject());
 
-        tirsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, String> e) -> {
+        tirsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, Double> e) -> {
             (e.getTableView().getItems().get(e.getTablePosition().getRow())).setTirsdagtid(e.getNewValue());
         });
 
-        TableColumn<Personale, String> onsdagColumn = new TableColumn<>("Onsdag");
-        onsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        onsdagColumn.setCellValueFactory(e -> e.getValue().onsdagtidProperty());
+        TableColumn<Personale, Double> onsdagColumn = new TableColumn<>("Onsdag");
+        onsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        onsdagColumn.setCellValueFactory(e -> e.getValue().onsdagtidProperty().asObject());
 
-        onsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, String> e) -> {
+        onsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, Double> e) -> {
             (e.getTableView().getItems().get(e.getTablePosition().getRow())).setOnsdagtid(e.getNewValue());
         });
 
-        TableColumn<Personale, String> torsdagColumn = new TableColumn<>("Torsdag");
-        torsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        torsdagColumn.setCellValueFactory(e -> e.getValue().torsdagtidProperty());
+        TableColumn<Personale, Double> torsdagColumn = new TableColumn<>("Torsdag");
+        torsdagColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        torsdagColumn.setCellValueFactory(e -> e.getValue().torsdagtidProperty().asObject());
 
-        torsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, String> e) -> {
+        torsdagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, Double> e) -> {
             (e.getTableView().getItems().get(e.getTablePosition().getRow())).setTorsdagtid(e.getNewValue());
         });
 
-        TableColumn<Personale, String> fredagColumn = new TableColumn<>("Fredag");
-        fredagColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        fredagColumn.setCellValueFactory(e -> e.getValue().fredagtidProperty());
+        TableColumn<Personale, Double> fredagColumn = new TableColumn<>("Fredag");
+        fredagColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        fredagColumn.setCellValueFactory(e -> e.getValue().fredagtidProperty().asObject());
 
-        mandagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, String> e) -> {
+        mandagColumn.setOnEditCommit((TableColumn.CellEditEvent<Personale, Double> e) -> {
             (e.getTableView().getItems().get(e.getTablePosition().getRow())).setMandagtid(e.getNewValue());
         });
 
