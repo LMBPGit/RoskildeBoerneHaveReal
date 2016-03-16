@@ -1,5 +1,6 @@
 package Builders;
 
+import JavaFX.KategoryMenuWindow;
 import JavaFX.LoginBox;
 import Models.Personale;
 import Util.PersonaleUtil;
@@ -82,10 +83,7 @@ public class PersonaleMenuWindow{
 
         Tab vagtPlanTab = new Tab("Vagtplan", vagtPlan);
 
-
     //Sygemeldings Tab
-
-
         ScrollPane overvindue = new ScrollPane();
 
         Button addsygedagbtn = new Button("ADD");
@@ -100,7 +98,6 @@ public class PersonaleMenuWindow{
         overvindue.setPrefSize(400, 400);
 
         Tab sygTab = new Tab("Sygemeldinger", overvindue);
-
 
 // Personale Liste
 
@@ -135,8 +132,8 @@ public class PersonaleMenuWindow{
 
         Button tilbageBtn = new Button("Tilbage");
         tilbageBtn.setOnAction(e ->{
-            LoginBox loginBox = new LoginBox();
-            primaryStage.setScene(loginBox.start(primaryStage));
+            KategoryMenuWindow kmw = new KategoryMenuWindow();
+            primaryStage.setScene(kmw.start(primaryStage));
         });
 
         outerWindow.setCenter(personaleTabs);

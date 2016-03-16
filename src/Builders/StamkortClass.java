@@ -2,6 +2,7 @@ package Builders;
 
 import Models.Boern;
 import Util.BoernUtil;
+import Util.VenteListeUtil;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -28,9 +29,12 @@ import java.util.ArrayList;
 public class StamkortClass {
 
     private static boolean nytBarn;
+    private static int count;
+
 
     public static void stamkort(String currentName) {
         nytBarn = true;
+        count = 0;
         Boern currentBarn = new Boern("Indsæt navn", 0);
 
         if(!currentName.equals("Indsæt navn")){
@@ -44,6 +48,22 @@ public class StamkortClass {
         VBox stamkortVbox = new VBox();
 
 //laver Hbox barn:
+        HBox hBox1 = new HBox();
+        hBox1.setPadding(new Insets(0,0,0,400));
+
+        Button sletBtn = new Button("slet");
+        sletBtn.setOnAction(e -> {
+            if(count == 0){
+                count++;
+                sletBtn.setText("SLET?!");
+            }else{
+                BoernUtil.removeBarnFraListen(currentName);
+                stamkortstage.close();
+                count = 0;
+            }
+
+        });
+        hBox1.getChildren().add(sletBtn);
 
         HBox barn = new HBox();
 
@@ -115,20 +135,11 @@ public class StamkortClass {
             stamkortstage.close();
         });
 
-        Button sletBarn = new Button("Slet Barn");
-        sletBarn.setOnAction(e -> {
-            BoernUtil.removeBarnFraListen(currentName);
-            stamkortstage.close();
-        });
-
 
         HBox buttonsBox = new HBox(tilbage, saveBtn);
         buttonsBox.setSpacing(20);
 
-        HBox diverseBtns = new HBox(sletBarn, buttonsBox);
-        diverseBtns.setSpacing(100);
-
-        stamkortVbox.getChildren().addAll(barn, forældre, label4, kontakt, label5, komentar, diverseBtns);
+        stamkortVbox.getChildren().addAll(hBox1, barn, forældre, label4, kontakt, label5, komentar, buttonsBox);
 
         stamkortVbox.setPadding(new Insets(15, 12, 15, 12));
         stamkortVbox.setSpacing(10);

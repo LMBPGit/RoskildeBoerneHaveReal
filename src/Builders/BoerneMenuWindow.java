@@ -1,5 +1,6 @@
 package Builders;
 
+import JavaFX.KategoryMenuWindow;
 import JavaFX.LoginBox;
 import Util.BoernUtil;
 import Util.PersonaleUtil;
@@ -36,7 +37,6 @@ public class BoerneMenuWindow {
         reloadBtn.setOnAction(e -> {
             tidligereBoernVbox.getChildren().clear();
             tidligereBoernVbox.getChildren().add(reloadBoerneListe());
-
         });
 
         VBox btnVbox = new VBox(addBarnBtn, reloadBtn);
@@ -58,14 +58,19 @@ public class BoerneMenuWindow {
 
         BorderPane venteListVindue = new BorderPane();
         ScrollPane ventelisteScroler = new ScrollPane();
-        VBox venteListeVbox = new VBox();
+        ListView ventelisten = new ListView();
 
         venteListVindue.setPadding(new Insets(20,20,20,20));
         venteListVindue.setPrefSize(200, 200);
         venteListVindue.setLeft(ventelisteScroler);
-        ventelisteScroler.setContent(venteListeVbox);
+        ventelisteScroler.setContent(ventelisten);
         ventelisteScroler.setPadding(new Insets(20,20,20,20));
         ventelisteScroler.setPrefSize(260, 260);
+
+        ObservableList obsList = FXCollections.observableArrayList();
+        obsList.addAll(VenteListeUtil.loadVenteListen());
+        ventelisten.setItems(obsList);
+        ventelisteScroler.setContent(ventelisten);
 
         TextField nytBarnVenteListe = new TextField();
         nytBarnVenteListe.setPromptText("Navn");
@@ -73,20 +78,24 @@ public class BoerneMenuWindow {
         Button nytBarnBtn = new Button("tilføj");
         nytBarnBtn.setOnAction(e -> {
             VenteListeUtil.nytBarnTilVenteListen(nytBarnVenteListe.getText());
+            ventelisten.getItems().clear();
+            ventelisten.setItems(reloadVenteListen());
         });
 
         Button sletBarnBtn = new Button("slet barn");
         sletBarnBtn.setOnAction(e -> {
             VenteListeUtil.fjernBarnFraVenteListen(nytBarnVenteListe.getText());
+            ventelisten.getItems().clear();
+            ventelisten.setItems(reloadVenteListen());
         });
-
-        ListView ventelisten = new ListView();
 
         HBox buttonHbox = new HBox(sletBarnBtn, nytBarnBtn);
         buttonHbox.setSpacing(20);
 
         VBox optionVbox = new VBox(nytBarnVenteListe, buttonHbox);
         optionVbox.setSpacing(20);
+
+        venteListVindue.setCenter(optionVbox);
 
         Tab venteListeTab = new Tab("VenteListe", venteListVindue);
 
@@ -95,14 +104,13 @@ public class BoerneMenuWindow {
 
         Button tilbageBtn = new Button("Tilbage");
         tilbageBtn.setOnAction(e ->{
-            LoginBox loginBox = new LoginBox();
-            primaryStage.setScene(loginBox.start(primaryStage));
+            KategoryMenuWindow kmw = new KategoryMenuWindow();
+            primaryStage.setScene(kmw.start(primaryStage));
         });
 
         outerWindow.setCenter(boerneTabs);
         outerWindow.setBottom(tilbageBtn);
         outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
-        outerWindow.setAlignment();
         outerWindow.setPadding(new Insets(10,10,10,10));
 
         Scene Scene = new Scene(outerWindow);
@@ -115,21 +123,15 @@ public class BoerneMenuWindow {
         VBox tidligereBoernVbox = BoernUtil.tidligereBoern();
         boerneVbox.getChildren().add(tidligereBoernVbox);
 
-        Button reloadBtn = new Button("genindlæs listen");
-        reloadBtn.setOnAction(e -> reloadBoerneListe());
-
-
         return boerneVbox;
     }
 
-    private ListView reloadVenteListen(){
+    private ObservableList reloadVenteListen(){
         ListView tempListView = new ListView();
         ObservableList obsList = FXCollections.observableArrayList();
         obsList.addAll(VenteListeUtil.loadVenteListen());
 
-        tempListView.setItems(obsList);
-
-        return tempListView;
+        return obsList;
     }
 
 }

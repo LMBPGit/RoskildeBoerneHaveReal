@@ -1,13 +1,11 @@
 package Util;
 
-import Models.Boern;
-
 import java.io.*;
 import java.util.ArrayList;
 
 public class VenteListeUtil {
 
-    private static File venteFile  = new File("boernefil.txt");
+    private static File venteFile  = new File("venteFile.txt");
 
     public static void nytBarnTilVenteListen(String name){
         ArrayList<String> boerneListe = loadVenteListen();
@@ -20,10 +18,9 @@ public class VenteListeUtil {
         int index = 0;
         for(String b: boerneListe){
             if(b.equals(name)){
-                index = boerneListe.indexOf(b);
+                boerneListe.remove(boerneListe.indexOf(b));
             }
         }
-        boerneListe.remove(index);
         saveVenteListen(boerneListe);
     }
 
