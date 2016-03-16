@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2c012dd-069b-4be5-b121-6a4986e3db5f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/boernefil.txt" afterPath="$PROJECT_DIR$/boernefil.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Builders/BoerneMenuWindow.java" afterPath="$PROJECT_DIR$/src/Builders/BoerneMenuWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Builders/PersonaleMenuWindow.java" afterPath="$PROJECT_DIR$/src/Builders/PersonaleMenuWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Builders/StamkortClass.java" afterPath="$PROJECT_DIR$/src/Builders/StamkortClass.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util/BoernUtil.java" afterPath="$PROJECT_DIR$/src/Util/BoernUtil.java" />
     </list>
@@ -47,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/src/JavaFX/LoginBox.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+              <caret line="123" column="38" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -67,12 +65,11 @@
         <entry file="file://$PROJECT_DIR$/src/Util/BoernUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
               <folding>
                 <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
                 <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
                 <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-                <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,8 +78,8 @@
       <file leaf-file-name="BoerneMenuWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Builders/BoerneMenuWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9979466">
-              <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.40041068">
+              <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/src/Builders/StamkortClass.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="119" column="55" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/src/Models/Boern.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -182,8 +179,8 @@
         <option value="$PROJECT_DIR$/src/Util/PersonaleUtil.java" />
         <option value="$PROJECT_DIR$/src/Builders/PersonaleMenuWindow.java" />
         <option value="$PROJECT_DIR$/src/Builders/StamkortClass.java" />
-        <option value="$PROJECT_DIR$/src/Util/BoernUtil.java" />
         <option value="$PROJECT_DIR$/src/Builders/BoerneMenuWindow.java" />
+        <option value="$PROJECT_DIR$/src/Util/BoernUtil.java" />
       </list>
     </option>
   </component>
@@ -836,12 +833,12 @@
       <workItem from="1458030578366" duration="2712000" />
       <workItem from="1458034699998" duration="6595000" />
       <workItem from="1458120110330" duration="9772000" />
-      <workItem from="1458136285182" duration="7302000" />
+      <workItem from="1458136285182" duration="8806000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40761000" />
+    <option name="totallyTimeSpent" value="42265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -856,7 +853,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32767624" sideWeight="0.49498746" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -928,7 +925,6 @@
             <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1032,6 @@
             <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1106,7 +1101,6 @@
             <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1166,7 +1160,6 @@
             <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
             <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1331,39 +1324,8 @@
     <entry file="file://$PROJECT_DIR$/src/Models/Boern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util/BoernUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
-          <folding>
-            <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
-            <element signature="method#addBarn#0;class#BoernUtil#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavaFX/LoginBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Builders/StamkortClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="55" selection-start-line="119" selection-start-column="55" selection-end-line="119" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1377,10 +1339,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util/BoernUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+          <folding>
+            <element signature="method#loadBoern#0;class#BoernUtil#0" expanded="false" />
+            <element signature="method#saveBoern#0;class#BoernUtil#0" expanded="false" />
+            <element signature="method#changeBarnInfo#0;class#BoernUtil#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JavaFX/LoginBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="123" column="38" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Builders/StamkortClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Builders/BoerneMenuWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9979466">
-          <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.40041068">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

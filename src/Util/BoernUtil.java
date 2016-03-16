@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -94,21 +95,6 @@ public class BoernUtil {
         saveBoern(boerneListe);
     }
 //javafx utils
-    public static HBox addBarn(){
-        HBox barnSkabelon = new HBox();
-        Label nameLabel = new Label("Intet navn"); //hvis String ("Intet navn") bliver skiftet skal if statement i stamkortClass laves om!!!
-        Rectangle profilBillede = new Rectangle(70, 100);
-        profilBillede.setFill(Color.LIGHTBLUE);
-        Button infoBtn = new Button("Info");
-        infoBtn.setOnAction(e -> {
-
-            StamkortClass.stamkort(nameLabel.getText());
-        });
-        barnSkabelon.getChildren().addAll(profilBillede, nameLabel, infoBtn);
-        barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
-        barnSkabelon.setSpacing(10);
-        return barnSkabelon;
-    }
 
     public static Boern getBarn(String name){
 

@@ -26,12 +26,13 @@ public class BoerneMenuWindow {
         boerneVbox.getChildren().add(tidligereBoernVbox);
 
         Button addBarnBtn = new Button("Tilføj Barn");
-        addBarnBtn.setOnAction(e -> boerneVbox.getChildren().add(BoernUtil.addBarn()));
+        addBarnBtn.setOnAction(e -> StamkortClass.stamkort("Indsæt navn"));
 
         Button reloadBtn = new Button("genindlæs listen");
         reloadBtn.setOnAction(e -> {
             tidligereBoernVbox.getChildren().clear();
             tidligereBoernVbox.getChildren().add(reloadBoerneListe());
+
         });
 
         VBox btnVbox = new VBox(addBarnBtn, reloadBtn);
@@ -76,7 +77,7 @@ public class BoerneMenuWindow {
 
         outerWindow.setCenter(boerneTabs);
         outerWindow.setBottom(tilbageBtn);
-        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_LEFT);
+        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
 
         Scene Scene = new Scene(outerWindow);
         return Scene;
@@ -88,13 +89,9 @@ public class BoerneMenuWindow {
         VBox tidligereBoernVbox = BoernUtil.tidligereBoern();
         boerneVbox.getChildren().add(tidligereBoernVbox);
 
-        Button addBarnBtn = new Button("Tilføj Barn");
-        addBarnBtn.setOnAction(e -> boerneVbox.getChildren().add(BoernUtil.addBarn()));
-
         Button reloadBtn = new Button("genindlæs listen");
         reloadBtn.setOnAction(e -> reloadBoerneListe());
 
-        VBox btnVbox = new VBox(addBarnBtn, reloadBtn);
 
         return boerneVbox;
     }

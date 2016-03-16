@@ -33,7 +33,7 @@ public class StamkortClass {
         nytBarn = true;
         Boern currentBarn = new Boern("Indsæt navn", 0);
 
-        if(!currentName.equals("Intet navn")){
+        if(!currentName.equals("Indsæt navn")){
             nytBarn = false;
             currentBarn = BoernUtil.getBarn(currentName);
         }
