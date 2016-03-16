@@ -59,7 +59,7 @@ public class LoginBox{
                 KategoryMenuWindow ktm = new KategoryMenuWindow();
                 window.setScene(ktm.start(window));
             }else {
-                userText.setText("Wrong");
+                userText.setPromptText("Forkert");
             }
         });
 
@@ -70,7 +70,6 @@ public class LoginBox{
             System.out.println("System Closed");
             window.close();
         });
-
 
         passText = new TextField();
         passText.setPromptText("Password");

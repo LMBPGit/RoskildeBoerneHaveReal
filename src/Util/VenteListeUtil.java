@@ -9,9 +9,9 @@ public class VenteListeUtil {
 
     private static File venteFile  = new File("boernefil.txt");
 
-    public static void nytBarnTilVenteListen(Boern nytBarn){
-        ArrayList<Boern> boerneListe = loadVenteListen();
-        boerneListe.add(nytBarn);
+    public static void nytBarnTilVenteListen(String name){
+        ArrayList<String> boerneListe = loadVenteListen();
+        boerneListe.add(name);
         saveVenteListen(boerneListe);
     }
 
@@ -27,13 +27,13 @@ public class VenteListeUtil {
         saveVenteListen(boerneListe);
     }
 
-    public static ArrayList<Boern> loadVenteListen(){
+    public static ArrayList<String> loadVenteListen(){
         ObjectInputStream objin = null;
-        ArrayList<Boern> returnBoern = null;
+        ArrayList<String> returnBoern = null;
         try{
             if(venteFile.length() != 0){
                 objin = new ObjectInputStream(new BufferedInputStream(new FileInputStream(venteFile)));
-                returnBoern = (ArrayList<Boern>) objin.readObject();
+                returnBoern = (ArrayList<String>) objin.readObject();
             }
         }catch (FileNotFoundException e){
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class VenteListeUtil {
         return returnBoern;
     }
 
-    public static void saveVenteListen(ArrayList<Boern> boerneliste){
+    public static void saveVenteListen(ArrayList<String> boerneliste){
         ObjectOutputStream objout = null;
         try{
             objout = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("venteFile.txt"))));

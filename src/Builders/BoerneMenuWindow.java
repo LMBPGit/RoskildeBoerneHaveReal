@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -66,9 +67,25 @@ public class BoerneMenuWindow {
         ventelisteScroler.setPadding(new Insets(20,20,20,20));
         ventelisteScroler.setPrefSize(260, 260);
 
+        TextField nytBarnVenteListe = new TextField();
+        nytBarnVenteListe.setPromptText("Navn");
+
+        Button nytBarnBtn = new Button("tilføj");
+        nytBarnBtn.setOnAction(e -> {
+            VenteListeUtil.nytBarnTilVenteListen(nytBarnVenteListe.getText());
+        });
+
+        Button sletBarnBtn = new Button("slet barn");
+        sletBarnBtn.setOnAction(e -> {
+            VenteListeUtil.fjernBarnFraVenteListen(nytBarnVenteListe.getText());
+        });
+
         ListView ventelisten = new ListView();
 
+        HBox buttonHbox = new HBox(sletBarnBtn, nytBarnBtn);
+        buttonHbox.setSpacing(20);
 
+        VBox optionVbox = new 
 
         Tab venteListeTab = new Tab("VenteListe", venteListVindue);
 
