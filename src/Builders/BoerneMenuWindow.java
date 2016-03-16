@@ -3,6 +3,9 @@ package Builders;
 import JavaFX.LoginBox;
 import Util.BoernUtil;
 import Util.PersonaleUtil;
+import Util.VenteListeUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -63,8 +66,11 @@ public class BoerneMenuWindow {
         ventelisteScroler.setPadding(new Insets(20,20,20,20));
         ventelisteScroler.setPrefSize(260, 260);
 
+        ListView ventelisten = new ListView();
 
-        Tab venteListeTab = new Tab("VenteListe");
+
+
+        Tab venteListeTab = new Tab("VenteListe", venteListVindue);
 
         TabPane boerneTabs = new TabPane(boerneListeTab, venteListeTab);
         boerneTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
@@ -97,5 +103,14 @@ public class BoerneMenuWindow {
         return boerneVbox;
     }
 
+    private ListView reloadVenteListen(){
+        ListView tempListView = new ListView();
+        ObservableList obsList = FXCollections.observableArrayList();
+        obsList.addAll(VenteListeUtil.loadVenteListen());
+
+        tempListView.setItems(obsList);
+
+        return tempListView;
+    }
 
 }
