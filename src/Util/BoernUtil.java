@@ -95,7 +95,6 @@ public class BoernUtil {
         saveBoern(boerneListe);
     }
 //javafx utils
-
     public static Boern getBarn(String name){
 
         ArrayList<Boern> boerneListe = BoernUtil.loadBoern();
