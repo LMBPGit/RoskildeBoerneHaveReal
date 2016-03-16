@@ -20,9 +20,10 @@ public class PersonaleUtil {
     public static ObservableList<Personale> getPersonale(){
         ObservableList<Personale> personaleListe = FXCollections.observableArrayList();
 
-        personaleListe.add(new Personale("John", "12345678", "Albentevej 40", "230289-2013"));// TEMPLISTE SKAL HENTE LISTE FRA FIL
-        personaleListe.add(new Personale("Birgitte", "12345678", "Albentevej 40", "230289-2013"));// TEMPLISTE SKAL HENTE LISTE FRA FIL
-
+        personaleListe.add(new Personale("Sven", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
+        personaleListe.add(new Personale("Erik", 28376432,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
+        personaleListe.add(new Personale("Mette", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
+        personaleListe.add(new Personale("Karina", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
         return personaleListe;
     }
 
