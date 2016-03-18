@@ -48,8 +48,8 @@ public class BoernUtil {
         try{
             if(boerneFil.length() != 0){
                 objin = new ObjectInputStream(new BufferedInputStream(new FileInputStream(boerneFil)));
-                returnBoern = (ArrayList<Boern>) objin.readObject();
-            }
+                }
+            returnBoern = (ArrayList<Boern>) objin.readObject();
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
