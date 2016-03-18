@@ -15,13 +15,16 @@ public class VenteListeUtil {
 
     public static void fjernBarnFraVenteListen(String name){
         ArrayList<String> boerneListe = loadVenteListen();
-        int index = 0;
+        int index = -1;
         for(String b: boerneListe){
             if(b.equals(name)){
-                boerneListe.remove(boerneListe.indexOf(b));
+                index = boerneListe.indexOf(b);
             }
         }
-        saveVenteListen(boerneListe);
+        if(index != -1){
+            boerneListe.remove(index);
+            saveVenteListen(boerneListe);
+        }
     }
 
     public static ArrayList<String> loadVenteListen(){
@@ -69,5 +72,6 @@ public class VenteListeUtil {
             }
         }
     }
+
 
 }

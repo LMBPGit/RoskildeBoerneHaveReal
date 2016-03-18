@@ -1,11 +1,12 @@
 package JavaFX;
 
-import Builders.BoerneMenuWindow;
-import Builders.PersonaleMenuWindow;
+import Builders.BoerneTab;
+import Builders.PersonaleTab;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,8 +15,6 @@ import javafx.stage.Stage;
 public class KategoryMenuWindow {
 
     Stage window;
-    Button kategoriBørn;
-    Button kategoriPersonale;
     Button kategoriLogUd;
     HBox kategoriTop;
     HBox kategoriBottom;
@@ -27,52 +26,32 @@ public class KategoryMenuWindow {
         window = primaryStage;
 
         kategoriTop = new HBox();
-        kategoriTop.setPadding(new Insets(20,20,20,20));
-        kategoriTop.setSpacing(20);
+        kategoriTop.setPrefSize(400, 500);
         kategoriTop.setAlignment(Pos.CENTER);
 
         kategoriBottom = new HBox();
-        kategoriBottom.setPadding(new Insets(20,20,20,20));
-        kategoriBottom.setSpacing(20);
-        kategoriBottom.setAlignment(Pos.BOTTOM_CENTER);
+        kategoriBottom.setAlignment(Pos.CENTER_LEFT);
+        kategoriBottom.setPadding(new Insets(10,10,10,10));
 
         kategoriWhole = new VBox();
 
-        kategoriBørn = new Button();
-        kategoriBørn.setText("Børn");
-        kategoriBørn.setMinSize(60,20);
-
-        kategoriPersonale = new Button();
-        kategoriPersonale.setText("Personale");
-        kategoriPersonale.setMinSize(60,20);
-
-        BoerneMenuWindow boerneMenuWindow = new BoerneMenuWindow();
-        kategoriBørn.setOnAction(e -> {
-            window.setScene(boerneMenuWindow.start(window));
-        });
-
-        PersonaleMenuWindow personaleMenuWindow = new PersonaleMenuWindow();
-        kategoriPersonale.setOnAction(e -> {
-            window.setScene(personaleMenuWindow.start(window));
-
-        });
+        BoerneTab boerneTab = new BoerneTab();
+        PersonaleTab personaleTab = new PersonaleTab();
+        TabPane kategoriTabs = new TabPane(boerneTab.start(), personaleTab.start());
 
         kategoriLogUd = new Button();
         kategoriLogUd.setText("Log ud");
-        kategoriLogUd.setMinSize(60,20);
         kategoriLogUd.setOnAction(e -> {
             LoginBox loginBox = new LoginBox();
             window.setScene(loginBox.start(primaryStage));
         });
 
-        kategoriTop.getChildren().addAll(kategoriBørn,kategoriPersonale);
+        kategoriTop.getChildren().addAll(kategoriTabs);
+        kategoriTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
         kategoriBottom.getChildren().addAll(kategoriLogUd);
-
         kategoriWhole.getChildren().addAll(kategoriTop,kategoriBottom);
-
-        kategoriScene = new Scene(kategoriWhole,400,150);
-
+        kategoriScene = new Scene(kategoriWhole,430,500);
         window.setScene(kategoriScene);
 
         return kategoriScene;

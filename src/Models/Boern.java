@@ -1,5 +1,7 @@
 package Models;
 
+import javafx.scene.image.Image;
+
 import java.io.Serializable;
 
 public class Boern implements Serializable{

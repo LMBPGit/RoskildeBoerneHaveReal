@@ -16,9 +16,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BoerneMenuWindow {
+public class BoerneTab {
 
-    public Scene start(Stage primaryStage){
+    public Tab start(){
 
         BorderPane outerWindow = new BorderPane();
         outerWindow.setPrefSize(450, 400);
@@ -64,7 +64,6 @@ public class BoerneMenuWindow {
         venteListVindue.setPrefSize(200, 200);
         venteListVindue.setLeft(ventelisteScroler);
         ventelisteScroler.setContent(ventelisten);
-        ventelisteScroler.setPadding(new Insets(20,20,20,20));
         ventelisteScroler.setPrefSize(260, 260);
 
         ObservableList obsList = FXCollections.observableArrayList();
@@ -73,18 +72,26 @@ public class BoerneMenuWindow {
         ventelisteScroler.setContent(ventelisten);
 
         TextField nytBarnVenteListe = new TextField();
-        nytBarnVenteListe.setPromptText("Navn");
+        nytBarnVenteListe.setPromptText("nyt Barn navn");
+
+        Label infoOmHandling = new Label();
 
         Button nytBarnBtn = new Button("tilføj");
         nytBarnBtn.setOnAction(e -> {
             VenteListeUtil.nytBarnTilVenteListen(nytBarnVenteListe.getText());
             ventelisten.getItems().clear();
             ventelisten.setItems(reloadVenteListen());
+            infoOmHandling.setText("");
         });
 
         Button sletBarnBtn = new Button("slet barn");
         sletBarnBtn.setOnAction(e -> {
-            VenteListeUtil.fjernBarnFraVenteListen(nytBarnVenteListe.getText());
+            if(ventelisten.getSelectionModel().getSelectedItem()!=null){
+                VenteListeUtil.fjernBarnFraVenteListen(ventelisten.getSelectionModel().getSelectedItem().toString());
+                infoOmHandling.setText("");
+            }else{
+                infoOmHandling.setText("Vælg et barn før \ndu sletter");
+            }
             ventelisten.getItems().clear();
             ventelisten.setItems(reloadVenteListen());
         });
@@ -92,7 +99,7 @@ public class BoerneMenuWindow {
         HBox buttonHbox = new HBox(sletBarnBtn, nytBarnBtn);
         buttonHbox.setSpacing(20);
 
-        VBox optionVbox = new VBox(nytBarnVenteListe, buttonHbox);
+        VBox optionVbox = new VBox(nytBarnVenteListe, buttonHbox, infoOmHandling);
         optionVbox.setSpacing(20);
 
         venteListVindue.setCenter(optionVbox);
@@ -102,19 +109,11 @@ public class BoerneMenuWindow {
         TabPane boerneTabs = new TabPane(boerneListeTab, venteListeTab);
         boerneTabs.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-        Button tilbageBtn = new Button("Tilbage");
-        tilbageBtn.setOnAction(e ->{
-            KategoryMenuWindow kmw = new KategoryMenuWindow();
-            primaryStage.setScene(kmw.start(primaryStage));
-        });
-
         outerWindow.setCenter(boerneTabs);
-        outerWindow.setBottom(tilbageBtn);
-        outerWindow.setAlignment(tilbageBtn, Pos.CENTER_RIGHT);
-        outerWindow.setPadding(new Insets(10,10,10,10));
 
-        Scene Scene = new Scene(outerWindow);
-        return Scene;
+        Tab boerneTab = new Tab("Børn");
+        boerneTab.setContent(outerWindow);
+        return boerneTab;
     }
 
     private VBox reloadBoerneListe(){

@@ -1,12 +1,11 @@
 package JavaFX;
 
-import Builders.BoerneMenuWindow;
-import Builders.PersonaleMenuWindow;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,7 +24,7 @@ public class LoginBox{
     Stage window;
     Button enterButton;
     Button cancelButton;
-    TextField passText;
+    PasswordField passText;
     TextField userText;
     HBox loginBoxBottom;
     HBox loginBoxTop;
@@ -71,7 +70,8 @@ public class LoginBox{
             window.close();
         });
 
-        passText = new TextField();
+
+        passText = new PasswordField();
         passText.setPromptText("Password");
 
         userText = new TextField();

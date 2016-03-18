@@ -20,10 +20,10 @@ public class PersonaleUtil {
     public static ObservableList<Personale> getPersonale(){
         ObservableList<Personale> personaleListe = FXCollections.observableArrayList();
 
-        personaleListe.add(new Personale("Sven", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
-        personaleListe.add(new Personale("Erik", 28376432,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
-        personaleListe.add(new Personale("Mette", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
-        personaleListe.add(new Personale("Karina", 32552912,"Nørregade 44", 2039123982, 08.00, 08.00, 08.00, 08.00, 08.00));
+        personaleListe.add(new Personale("Sven", 32552912,"Nørregade 44", 2039123982, "10-16", "8-13", "8-12", "8-12", "11-16"));
+        personaleListe.add(new Personale("Erik", 28376432,"Nørregade 44", 2039123982, "8-16", "", "6-12", "", "8-16"));
+        personaleListe.add(new Personale("Mette", 32552912,"Nørregade 44", 2039123982, "", "8-16", "6-16", "8-16", ""));
+        personaleListe.add(new Personale("Karina", 32552912,"Nørregade 44", 2039123982, "8-16", "5-12", "6-13", "6-16", "7-16"));
         return personaleListe;
     }
 

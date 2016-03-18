@@ -5,10 +5,9 @@ import Models.Boern;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -113,23 +112,26 @@ public class BoernUtil {
         VBox tidligereBoernVBox = new VBox();
         ArrayList<Boern> boerneListe = loadBoern();
 
-        for(Boern b: boerneListe){
-            BorderPane barnSkabelon = new BorderPane();
-            Label nameLabel = new Label(b.getName());
-            Rectangle profilBillede = new Rectangle(70, 100);
-            profilBillede.setFill(Color.LIGHTBLUE);
-            Button infoBtn = new Button("Info");
-            infoBtn.setOnAction(e -> {
+        if(boerneListe != null){
 
-                StamkortClass.stamkort(nameLabel.getText());
-            });
-            barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
-            barnSkabelon.setLeft(profilBillede);
-            barnSkabelon.setTop(nameLabel);
-            barnSkabelon.setCenter(infoBtn);
-            tidligereBoernVBox.getChildren().add(barnSkabelon);
+            for(Boern b: boerneListe){
+                BorderPane barnSkabelon = new BorderPane();
+                Label nameLabel = new Label(b.getName());
+                Image profilBillede = new Image("file:barn.png");
+                ImageView imageView = new ImageView(profilBillede);
+                Button infoBtn = new Button("Info");
+                infoBtn.setOnAction(e -> {
+                    StamkortClass.stamkort(nameLabel.getText());
+                });
+
+                barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
+                barnSkabelon.setLeft(imageView);
+                barnSkabelon.setTop(nameLabel);
+                barnSkabelon.setCenter(infoBtn);
+                tidligereBoernVBox.getChildren().add(barnSkabelon);
+            }
+
         }
-
         return tidligereBoernVBox;
     }
 }
