@@ -123,7 +123,6 @@ public class BoernUtil {
                 infoBtn.setOnAction(e -> {
                     StamkortClass.stamkort(nameLabel.getText());
                 });
-
                 barnSkabelon.setPadding(new Insets(10, 0, 0, 0));
                 barnSkabelon.setLeft(imageView);
                 barnSkabelon.setTop(nameLabel);

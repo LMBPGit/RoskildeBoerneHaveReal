@@ -69,10 +69,11 @@ public class StamkortClass {
 
         VBox barn1 = new VBox();
 
-        Rectangle billede = new Rectangle(100,100);
+        Image image = new Image("file:barn.png");
+        ImageView imageView = new ImageView(image);
 
         Label label = new Label("FOTO:");
-        barn1.getChildren().addAll(label,billede);
+        barn1.getChildren().addAll(label,imageView);
         barn1.setPadding(new Insets(0, 12, 15, 0));
         barn1.setSpacing(10);
 
